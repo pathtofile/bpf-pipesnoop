@@ -49,7 +49,7 @@ static int handle_event(void *ctx, void *data, size_t data_sz)
         else if (buff[i] == '\n') {
             buff[i] = 0x00;
         }
-        else if (buff[i] < 33 || buff[i] > 126) {
+        else if (buff[i] < 32 || buff[i] > 126) {
             buff[i] = '?';
         }
     }
@@ -59,10 +59,10 @@ static int handle_event(void *ctx, void *data, size_t data_sz)
     char message[MAX_BUF_SIZE+200];
     start = sprintf(message, "[*] %s[%d] ", e->comm, e->pid);
     if (e->action == WRITE) {
-        start = sprintf(message+start, "wrote %d from piped stdout: '%s'",  e->real_size, buff);
+        start = sprintf(message+start, "wrote %d bytes from piped stdout: '%s'",  e->real_size, buff);
     }
     else {
-        start = sprintf(message+start, "read %d from piped stdin: '%s'",  e->real_size, buff);
+        start = sprintf(message+start, "read %d bytes from piped stdin: '%s'",  e->real_size, buff);
     }
 
     if (e->real_size > MAX_BUF_SIZE) {

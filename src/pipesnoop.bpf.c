@@ -7,7 +7,7 @@
 #include <bpf/bpf_helpers.h>
 char LICENSE[] SEC("license") = "Dual BSD/GPL";
 
-int target_ppid = 18601;
+int target_ppid = 0;
 
 struct {
     __uint(type, BPF_MAP_TYPE_HASH);
