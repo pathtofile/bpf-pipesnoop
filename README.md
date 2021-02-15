@@ -1,5 +1,6 @@
 # BPF-PipeSnoop
 Example program using eBPF to log data being based in using shell pipes (`|`)
+Accompanies my blog [Using eBPF to uncover in-memory loading](https://blog.tofile.dev/2021/02/15/ebpf-01.html)
 
 # Overview
 Shells can parse data between programs using pipes, e.g.:
